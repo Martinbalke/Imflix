@@ -1,8 +1,8 @@
 // TMDB img link https://image.tmdb.org/t/p/w500/
 const request = require('request');
 
-const tmdbGet = (IMDBid, callback) => {
-	const url = `https://api.themoviedb.org/3/find/${IMDBid}?api_key=0e932f82321ea8e70319b6b15dc59e01&language=en-US&external_source=imdb_id`;
+const tmdbGet = (imdbid, callback) => {
+	const url = `https://api.themoviedb.org/3/find/${imdbid}?api_key=0e932f82321ea8e70319b6b15dc59e01&language=en-US&external_source=imdb_id`;
 
 	request({ url, json: true }, (error, { body }) => {
 		if (error) return callback(console.log(error), undefined);
