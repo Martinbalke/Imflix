@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="icon" type="image/x-icon" href="/img/favicon.png" />
-	<link rel="stylesheet" href="/css/styles.css" type="text/css">
-	<title>IMFLIX</title>
-</head>
+{{>header}}
 
 <body>
-	<img src="/img/logo-large.png" alt="Imflix main logo" width="50%">
-	{{>searchform}}
+
+	{{>nav}}
+	<div class="main-heading">
+		<img src="/img/logo-large.png" alt="Imflix main logo" class="main-heading__hero">
+		<h1 class="main-heading__heading-primary">An open source Netflix and IMDB search aggregator
+		</h1>
+		<p class="main-heading__paragraph">Search below to start using our service. Be sure to register or log in to
+			save your favorites</p>
+		{{>searchform}}
+	</div>
+	{{>footer}}
 </body>
 
 </html>

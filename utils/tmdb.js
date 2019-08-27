@@ -20,8 +20,8 @@ const tmdbGet = (imdbid, callback) => {
 
 // tmdbGet('tt2189248', (error, response) => {
 // 	if (error) return console.log(error);
-// 	const { name, poster_path: img, vote_average: rating, vote_count: votes, popularity } = response[0];
-// 	console.log(name, img, votes, rating, popularity);
+// 	const { name, poster_path: img, vote_average: rating} = response[0];
+// 	console.log(name, img, rating);
 // })
 
 module.exports = tmdbGet;
