@@ -5,7 +5,7 @@ const hbs = require('hbs');
 const unirest = require('unirest');
 
 //Local imports
-const netflixSearch = require('./controller/unog-netflix');
+const netflixSearch = require('./controller/uNoGS-netflix');
 
 //Initialize express and have it listen on port 
 const app = express();
@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 
 //Setup express to use the express json parser
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Setup paths
 const publicDirectory = path.join(__dirname + '/public');
@@ -29,6 +30,19 @@ hbs.registerPartials(partials);
 app.get('/', (req, res) => {
 	res.render('index');
 });
+
+app.get('/search', (req, res) => {
+	res.render('search');
+});
+
+app.post('/search', (req, res) => {
+	const search = req.body.search;
+	console.log(search);
+	netflixSearch(search, (error, response) => {
+		if (error) return error;
+		res.send(response);
+	});
+})
 
 
 app.listen(port, () => {

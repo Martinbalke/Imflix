@@ -1,7 +1,7 @@
 
 const unirest = require("unirest");
 
-const netflixSearch = (searchQuery) => {
+const netflixSearch = (searchQuery, callback) => {
 
 	unirest("GET", "https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi")
 		.query({
@@ -17,9 +17,9 @@ const netflixSearch = (searchQuery) => {
 			"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
 			"x-rapidapi-key": "bc8d2c1c4emsh14316197c74c115p1db4aajsn5d33151046d6"
 		}).end(function (res) {
-			if (res.error) throw new Error(res.error);
+			if (res.error) return callback(res.error, undefined);
 
-			console.log(res.body);
+			callback(undefined, res.body);
 		});
 
 }
