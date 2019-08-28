@@ -1,0 +1,20 @@
+.search {
+	
+	&__form {
+		margin-top: 4rem;
+		
+		&--input{
+			text-align: center;
+			border: none;
+			border-radius: 2rem;
+			width: 50%;
+			height: 3.5rem;
+			margin-right: 1rem;
+			font-size: $font-size-medium;
+			color: $color-primary-red;
+
+		}
+
+	}
+
+}

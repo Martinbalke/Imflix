@@ -17,6 +17,31 @@
 	}
 
 }
+.search-results{
+
+	&__main {
+
+		&__heading-secondary{
+			color: $color-primary-white;
+			font-family: $font-family-primary;
+			font-size: $font-size-medium;
+		}
+	}
+
+}
+
+.title-card__text{
+	color: $color-primary-white;
+	font-family: $font-family-secondary;
+	font-size: $font-size-small;
+	
+	&--name{
+		color: $color-primary-black;
+		font-family: $font-family-primary;
+		font-size: $font-size-medium;
+	}
+
+}
 
 .footer{
 
@@ -27,7 +52,7 @@
 		padding: 2rem;
 
 		&--cpy{
-			color: rgba($color-primary-white, $alpha: 0.75);
+			color: rgba($color-primary-white, $alpha: 0.6);
 		}
 	}
 }

@@ -3,17 +3,32 @@
 <body>
 
 	{{>nav}}
-	{{>searchform}}
-	<div class="search-main">
-		<img src="/img/logo-small.png" alt="Imflix logo small" class="search-main__small-img">
-		<h2 class="search-main__heading-secondary">Click on a title below to see it's IMDB rating</h2>
+	<div class="search-results">
+		<div class="search-results__main">
+			<img src="/img/logo-small.png" alt="Imflix logo small" class="search-results__main--logo">
+			<h2 class="search-results__main__heading-secondary">Click on a title below to see it's IMDB rating</h2>
+		</div>
+		{{>searchform}}
+		<div class="flex">
+			<div class="title-card flex__col-4">
+				<img src="http://art-2.nflximg.net/63fac/79c52ccb0931cc50f51fd8922ecaef551d263fac.jpg"
+					alt="Pray For Rain Poster" class="title-card__img">
+				<div class="title-card__text">
+					<h3 class="title-card__text--name">Pray For Rain</h3>
+					<hr>
+					<p class="title-card__text--rating">7.5</p>
+					<p class="title-card__text--synopsis">Following her father's suspicious death, a New York journalist
+						returns
+						to her hometown, where drought and gangs have
+						decimated the farming community.</p>
+					<input type="submit" class="title-card__text--btn btn-primary" value="Click to see IMDB rating" id="">
+				</div>
+			</div>
+		</div>
+
+
 	</div>
-	<div class="search-result">
-		<img src="" alt="" class="search-result__img">
-		<h3 class="search-result__name"></h3>
-		<p class="search-result__rating"></p>
-		<p class="search-result__synopsis"></p>
-	</div>
+
 </body>
 {{>footer}}
 
