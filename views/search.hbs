@@ -6,24 +6,23 @@
 	<div class="search-results">
 		<div class="search-results__main">
 			<img src="/img/logo-small.png" alt="Imflix logo small" class="search-results__main--logo">
-			<h2 class="search-results__main__heading-secondary">Click on a title below to see it's IMDB rating</h2>
+			<h2 class="search-results__main__heading-secondary">{{text}}</h2>
 		</div>
 		{{>searchform}}
 		<div class="flex">
+			{{#each data}}
 			<div class="title-card flex__col-4">
-				<img src="http://art-2.nflximg.net/63fac/79c52ccb0931cc50f51fd8922ecaef551d263fac.jpg"
-					alt="Pray For Rain Poster" class="title-card__img">
+				<img src="{{this.image}}" alt="{{this.title}} image" class="title-card__img">
 				<div class="title-card__text">
-					<h3 class="title-card__text--name">Pray For Rain</h3>
+					<h3 class="title-card__text--name">{{this.title}}</h3>
 					<hr>
-					<p class="title-card__text--rating">7.5</p>
-					<p class="title-card__text--synopsis">Following her father's suspicious death, a New York journalist
-						returns
-						to her hometown, where drought and gangs have
-						decimated the farming community.</p>
-					<input type="submit" class="title-card__text--btn btn-primary" value="Click to see IMDB rating" id="">
+					<p class=" title-card__text--rating">{{this.rating}}</p>
+					<p class="title-card__text--synopsis">{{this.synopsis}}</p>
+					<input type="submit" class="title-card__text--btn btn-secondary" value="Click to see IMDB rating"
+						id="{{this.imdbid}}">
 				</div>
 			</div>
+			{{/each}}
 		</div>
 
 
