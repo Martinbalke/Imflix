@@ -65,14 +65,13 @@ app.post('/search', (req, res) => {
 app.post('/imdb', (req, res) => {
 	const imdb = req.body.imdb;
 	imdbSearch(imdb, (error, response) => {
-		console.log(response);
+		const { poster_path: image, title, vote_average: rating, overview: synopsis } = response[0];
 		if (error) return error;
 		res.render('imdb', {
-			image: response[0].poster_path,
-			title: response[0].title,
-			rating: response[0].vote_average,
-			synopsis: response[0].overview,
-
+			image,
+			title,
+			rating,
+			synopsis
 		});
 	});
 });

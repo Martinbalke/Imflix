@@ -1,4 +1,6 @@
 .search {
+	margin-bottom: 3.5rem;
+	
 	
 	&__form {
 		margin-top: 4rem;
@@ -10,8 +12,11 @@
 			width: 50%;
 			height: 3.5rem;
 			margin-right: 1rem;
+			font-weight: bold;
 			font-size: $font-size-medium;
 			color: $color-primary-red;
+			outline: none;
+			text-transform: uppercase;
 
 		}
 

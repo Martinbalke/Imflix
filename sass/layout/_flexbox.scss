@@ -1,10 +1,21 @@
-.flex{
+.flex-between{
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+}
 
-	&__col-4{
-		min-width: 25rem;
-		width: 23%;
-	}
+.flex-center{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.col-4{
+	min-width: 25rem;
+	width: 23%;
+}
+
+.col-2{
+	min-width: 40rem;
+	width: 46%;
 }

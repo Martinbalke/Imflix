@@ -1,16 +1,26 @@
 {{>header}}
 
 <body>
+	<div class="imdb">
+		<div class="search-results">
+			<div class="search-results__main">
+				<img src="/img/logo-small.png" alt="Imflix logo small" class="search-results__main--logo">
+				<h2 class="search-results__main__heading-secondary">{{text}}</h2>
+			</div>
 
-	{{>nav}}
-	{{>searchform}}
-	<div class="title-card flex__col-4">
-		<img src="https://image.tmdb.org/t/p/w500{{image}}" alt="{{title}} image" class="title-card__img">
-		<div class="title-card__text">
-			<h3 class="title-card__text--name">{{title}}</h3>
-			<hr>
-			<p class=" title-card__text--rating">{{rating}}</p>
-			<p class="title-card__text--synopsis">{{synopsis}}</p>
+			{{>nav}}
+			{{>searchform}}
+			<div class="flex-center">
+				<div class="imdb-card col-2">
+					<img src="https://image.tmdb.org/t/p/w500{{image}}" alt="{{title}} image" class="imdb-card__img">
+					<div class="imdb-card__text">
+						<h3 class="imdb-card__text--name">{{title}}</h3>
+						<hr>
+						<p class="imdb-card__text--rating">{{rating}}</p>
+						<p class="imdb-card__text--synopsis">{{synopsis}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
