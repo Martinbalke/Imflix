@@ -10,18 +10,27 @@
 		</div>
 		{{>searchform}}
 		<div class="flex">
-			{{#each data}}
 			<div class="title-card flex__col-4">
 				<img src="{{this.image}}" alt="{{this.title}} image" class="title-card__img">
 				<div class="title-card__text">
-					<h3 class="title-card__text--name">{{this.title}}</h3>
+					<h3 class="title-card__text--name">Hello</h3>
 					<hr>
-					<p class=" title-card__text--rating">{{this.rating}}</p>
-					<p class="title-card__text--synopsis">{{this.synopsis}}</p>
-					<input type="submit" class="title-card__text--btn btn-secondary" value="Click to see IMDB rating"
-						id="{{this.imdbid}}">
+					<p class=" title-card__text--rating">3 star</p>
+					<p class="title-card__text--synopsis">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+						Magni nemo animi hic qui debitis! A veritatis deserunt ea maxime culpa perferendis nemo,
+						dignissimos mollitia dolores, sit ut ab modi similique!</p>
+
+					<form action="/imdb" method="POST" class="title-card__text--form">
+						{{!-- <input type="submit" class="title-card__text--btn btn-secondary" name="test"
+							value="Click to see IMDB rating" id="222"> --}}
+						<button name="imdb" value="tt5213870" class="title-card__text--btn btn-secondary">Click to see
+							IMDB
+							rating</button>
+					</form>
 				</div>
 			</div>
+			{{#each data}}
+			{{>titlecard}}
 			{{/each}}
 		</div>
 
