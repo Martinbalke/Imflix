@@ -1,0 +1,19 @@
+{{>header}}
+
+<body>
+
+	{{>nav}}
+	{{>searchform}}
+	<div class="title-card flex__col-4">
+		<img src="https://image.tmdb.org/t/p/w500{{image}}" alt="{{title}} image" class="title-card__img">
+		<div class="title-card__text">
+			<h3 class="title-card__text--name">{{title}}</h3>
+			<hr>
+			<p class=" title-card__text--rating">{{rating}}</p>
+			<p class="title-card__text--synopsis">{{synopsis}}</p>
+		</div>
+	</div>
+</body>
+{{>footer}}
+
+</html>

@@ -2,6 +2,12 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
+const fs = require('fs');
+
+
+
+
+
 
 //LOCAL IMPORTS
 //Function for searching through the open source netflix database supply a search criteria and a callback
@@ -36,22 +42,40 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search', (req, res) => {
-	res.render('search');
+	res.render('search', {
+		text: 'Search below to discover new shows'
+	});
 });
 
 
 //Takes in the search form criteria and uses that to search the open source netflix db
 app.post('/search', (req, res) => {
 	const search = req.body.search;
-
 	netflixSearch(search, (error, response) => {
 		if (error) return error;
+		res.render('search', {
+			data: response.ITEMS,
+			text: `Click on a title below to see it's IMDB rating`
+		});
 
-		const imdbid = response.ITEMS[0].imdbid.toString();
-		console.log(imdbid);
 	});
-})
+});
 
+
+app.post('/imdb', (req, res) => {
+	const imdb = req.body.imdb;
+	imdbSearch(imdb, (error, response) => {
+		console.log(response);
+		if (error) return error;
+		res.render('imdb', {
+			image: response[0].poster_path,
+			title: response[0].title,
+			rating: response[0].vote_average,
+			synopsis: response[0].overview,
+
+		});
+	});
+});
 
 app.listen(port, () => {
 	console.log(`App is live on ${port}`);

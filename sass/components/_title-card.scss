@@ -1,0 +1,18 @@
+.title-card{
+	margin: 1.5rem 1rem;
+	position: relative;
+	overflow: hidden;
+	
+	&__text{
+		background-image: linear-gradient(to right, rgba($color-primary-white, .8), rgba($color-primary-white, .8));
+		height: 30rem;
+		
+		&--btn{
+			
+			position: absolute;
+			bottom: 0;
+			transform: translate(-50%, -30%);
+		}
+	}
+
+}

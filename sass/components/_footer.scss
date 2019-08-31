@@ -1,0 +1,20 @@
+.footer{
+	background-color: $color-primary-red;
+	position: relative;
+	height: 20vh;
+	text-align: center;
+
+	&__icons {
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		&--img{
+			width: 5rem;
+			padding-right: 1rem;
+		
+		}
+
+	}
+
+}

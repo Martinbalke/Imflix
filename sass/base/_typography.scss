@@ -1,0 +1,58 @@
+.main-heading {
+	color: $color-primary-white;
+	text-align: center;
+
+	&__heading-primary{
+		font-size: $font-size-large;
+		padding: 2rem;
+		font-family: $font-family-primary;
+		font-weight: bold;
+		margin-top: -2rem;
+	}
+	
+	&__paragraph {
+		font-size: $font-size-small;
+		font-family: $font-family-secondary;
+		font-weight: 300;
+	}
+
+}
+.search-results{
+
+	&__main {
+
+		&__heading-secondary{
+			color: $color-primary-white;
+			font-family: $font-family-primary;
+			font-size: $font-size-medium;
+		}
+	}
+
+}
+
+.title-card__text{
+	color: $color-primary-white;
+	font-family: $font-family-secondary;
+	font-size: $font-size-small;
+	
+	&--name{
+		color: $color-primary-black;
+		font-family: $font-family-primary;
+		font-size: $font-size-medium;
+	}
+
+}
+
+.footer{
+
+	&__text{
+		color: $color-primary-white;
+		font-size: $font-size-small;
+		font-family: $font-family-secondary;
+		padding: 2rem;
+
+		&--cpy{
+			color: rgba($color-primary-white, $alpha: 0.6);
+		}
+	}
+}
