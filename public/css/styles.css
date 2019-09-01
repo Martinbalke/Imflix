@@ -48,11 +48,21 @@ body {
   .footer__text--cpy {
     color: rgba(255, 255, 255, 0.6); }
 
+.imdb-card__text {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem; }
+
 .footer {
   background-color: #E50914;
   position: relative;
   height: 20vh;
-  text-align: center; }
+  text-align: center;
+  min-height: 20rem; }
+  .footer__text {
+    position: absolute;
+    bottom: 0;
+    padding: 0; }
   .footer__icons {
     display: inline-block;
     position: absolute;
@@ -142,7 +152,8 @@ body {
   background-color: #000;
   background-image: url("/img/background-image.jpeg");
   background-size: cover;
-  height: 95vh; }
+  height: 95vh;
+  min-height: 65rem; }
   .main-heading__hero {
     display: block;
     margin: 0 auto;

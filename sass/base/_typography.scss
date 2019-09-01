@@ -56,3 +56,19 @@
 		}
 	}
 }
+
+
+.imdb{
+	
+
+	&-card{
+
+		&__text{
+			color: $color-primary-white;
+			font-family: $font-family-secondary;
+			font-size: $font-size-small;
+		}
+
+	}
+
+}
