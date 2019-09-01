@@ -3,6 +3,14 @@
 	position: relative;
 	overflow: hidden;
 	
+	& hr{
+
+		height: .5rem;
+		border: 0;
+		box-shadow: 0 .5rem 1rem -1rem $color-primary-black inset;
+
+	}
+
 	&__text{
 		background-image: linear-gradient(to right, rgba($color-primary-white, .8), rgba($color-primary-white, .8));
 		height: 30rem;

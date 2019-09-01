@@ -1,0 +1,18 @@
+.imdb {
+
+	background-color: $color-primary-black;
+	text-align: center;
+	min-height: 95vh;
+	color: $color-primary-white;
+	
+
+	&-card{
+		margin-bottom: 2rem;
+		&__img{
+			width: 50%;
+		}
+		
+
+	}
+
+}
