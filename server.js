@@ -1,19 +1,34 @@
+'use strict';
+
 //NPM PACKAGE IMPORTS 
+require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
-const fs = require('fs');
-
-
-
-
-
+const {Client} = require('pg');
 
 //LOCAL IMPORTS
+//Model for favorites
+const favorites = require('./model/favorites');
 //Function for searching through the open source netflix database supply a search criteria and a callback
 const netflixSearch = require('./utils/uNoGS-netflix');
 //Function for searching through the open source IMDB database supply a ID and a callback
 const imdbSearch = require('./utils/tmdb');
+
+
+//SQL Database configuration
+const client = new Client({
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DATABASE
+});
+
+client.connect()
+client.on('error', (error) => console.error(error));
+
+//Initialize the favorites table
+client.query(favorites);
 
 //Initialize express and have it listen on port 
 const app = express();
@@ -71,11 +86,40 @@ app.post('/imdb', (req, res) => {
 			image,
 			title,
 			rating,
-			synopsis
+			synopsis,
+			imdb
 		});
 	});
 });
 
+app.post('/favorites', (req, res) => {
+	const imdbID = req.body.id;
+	client.query('INSERT INTO favorites(imdbid) values($1)', [imdbID])
+		.then( (result) =>  res.status(201).send())
+		.catch ( (error) => res.status(400).send());
+
+});
+
+
+app.get('/favorites', (req, res) => {
+	const query = {
+		text: 'SELECT imdbid FROM favorites',
+		rowMode: 'array',
+	}
+	const data = [];
+
+	client.query(query)
+		.then( (result) => {
+			result.rows.forEach( (imdbID) => {
+				imdbSearch(imdbID, (error, result) => {
+					if (error) return error;
+					data.push(result);
+					console.log(data);
+				});
+			})
+		})
+		.catch( (error) => console.error(error.stack));
+});
 app.listen(port, () => {
 	console.log(`App is live on ${port}`);
 });

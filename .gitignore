@@ -1,2 +1,7 @@
 node_modules/
+
+#Data to use outside of api calls for dev purposes
 dummydata.json
+
+#SQL database environment setups
+.env

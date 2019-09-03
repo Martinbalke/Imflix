@@ -1,0 +1,21 @@
+{{>header}}
+
+<body>
+
+	{{>nav}}
+		<div class="flex-center">
+			<div class="imdb-card col-2">
+				<img src="https://image.tmdb.org/t/p/w500{{image}}" alt="{{title}} image" class="imdb-card__img">
+				<div class="imdb-card__text">
+					<h3 class="imdb-card__text--name">{{title}}</h3>
+					<hr>
+					<p class="imdb-card__text--rating">{{rating}}</p>
+					<p class="imdb-card__text--synopsis">{{synopsis}}</p>
+					<button name="id" value="{{imdb}}" id="favorites-button">Add to your favorites</button>
+				</div>
+			</div>
+		</div>
+	{{>footer}}
+</body>
+
+</html>
