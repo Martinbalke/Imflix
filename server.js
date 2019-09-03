@@ -109,15 +109,11 @@ app.get('/favorites', (req, res) => {
 	const data = [];
 
 	client.query(query)
-		.then( (result) => {
-			result.rows.forEach( (imdbID) => {
-				imdbSearch(imdbID, (error, result) => {
-					if (error) return error;
-					data.push(result);
-					console.log(data);
-				});
-			})
+		.then( (result) => result.rows)
+		.then( (rows) => {
+			const imdbid = rows.map( (row) => imdbSearch(row, (error, response) => console.log(response)))
 		})
+		.then( (imdb) => console.log(imdb))
 		.catch( (error) => console.error(error.stack));
 });
 app.listen(port, () => {
