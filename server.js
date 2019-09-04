@@ -79,24 +79,25 @@ app.post('/search', (req, res) => {
 
 app.post('/imdb', (req, res) => {
 	const imdb = req.body.imdb;
-	imdbSearch(imdb, (error, response) => {
-		const { poster_path: image, title, vote_average: rating, overview: synopsis } = response[0];
-		if (error) return error;
-		res.render('imdb', {
-			image,
-			title,
-			rating,
-			synopsis,
-			imdb
-		});
-	});
+	imdbSearch(imdb)
+		.then( (result) => {
+			const { poster_path: image, title, vote_average: rating, overview: synopsis } = result[0];
+			res.render('imdb', {
+				image,
+				title,
+				rating,
+				synopsis,
+				imdb
+			});
+		})
+		.catch( (error) => console.error(error) )
 });
 
 app.post('/favorites', (req, res) => {
 	const imdbID = req.body.id;
 	client.query('INSERT INTO favorites(imdbid) values($1)', [imdbID])
 		.then( (result) =>  res.status(201).send())
-		.catch ( (error) => res.status(400).send());
+		.catch( (error) => res.status(400).send());
 
 });
 
@@ -106,16 +107,21 @@ app.get('/favorites', (req, res) => {
 		text: 'SELECT imdbid FROM favorites',
 		rowMode: 'array',
 	}
-	const data = [];
 
 	client.query(query)
 		.then( (result) => result.rows)
 		.then( (rows) => {
-			const imdbid = rows.map( (row) => imdbSearch(row, (error, response) => console.log(response)))
+			const imdbData = Promise.all(rows.map( (row) => imdbSearch(row)))
+			imdbData.then((data) => {
+				data = data.flat();
+				res.render('favorites', {
+					data
+				})
+			})
 		})
-		.then( (imdb) => console.log(imdb))
 		.catch( (error) => console.error(error.stack));
 });
+
 app.listen(port, () => {
 	console.log(`App is live on ${port}`);
 });
