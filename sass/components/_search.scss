@@ -5,6 +5,14 @@
 	&__form {
 		margin-top: 4rem;
 		
+		&--icon{
+			font-size: 3rem;
+			top: 3px;
+			position: relative;
+			left: 4rem;
+			color: rgba(0,0,0,.5);
+		}
+
 		&--input{
 			text-align: center;
 			border: none;

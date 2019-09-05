@@ -11,10 +11,12 @@
 @import "components/search";
 @import "components/btns";
 @import "components/title-card";
+@import "components/navigation";
 
 @import "layout/heading.scss";
 @import "layout/flexbox";
-@import "layout/navigation";
+
 
 @import "pages/search";
 @import "pages/imdb";
+@import "pages/favorites";

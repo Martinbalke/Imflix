@@ -18,7 +18,13 @@ const netflixSearch = (searchQuery, callback) => {
 		}).end((res) => {
 			if (res.error) return callback(res.error, undefined);
 
-			callback(undefined, res.body);
+
+
+			//Turns the data in to a string so I can use the string.replace method to remove the charcodes
+			const data = JSON.stringify(res.body).replace(/&#39;/gi, `'`);
+			body = JSON.parse(data);
+
+			callback(undefined, body);
 		});
 
 }
