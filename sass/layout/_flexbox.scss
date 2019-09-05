@@ -1,6 +1,6 @@
-.flex-between{
+.flex-around{
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: wrap;
 }
 
@@ -14,7 +14,10 @@
 	min-width: 25rem;
 	width: 23%;
 }
-
+.col-3{
+	width: 32%;
+	min-width: 40rem;
+}
 .col-2{
 	min-width: 40rem;
 	width: 46%;

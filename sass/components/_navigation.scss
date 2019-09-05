@@ -23,7 +23,7 @@
 		top: 1.5rem;
 		left: 1.5rem;
 		background-image: radial-gradient($color-primary-red-light, $color-primary-red-dark);
-		z-index: 10;
+		z-index: 30;
 		transform: scale(7);
 		display: none;
 		border-radius: .5rem;
@@ -42,7 +42,7 @@
 	&__list{
 		position: absolute;
 		top: 0;
-		left: 6rem;
+		left: 4rem;
 		list-style: none;
 		text-align: center;
 		display: none;

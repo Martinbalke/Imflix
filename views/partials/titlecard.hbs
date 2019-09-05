@@ -1,14 +1,14 @@
-<div class="title-card col-4">
-	<img src="{{this.image}}" alt="{{this.title}} image" class="title-card__img">
-	<div class="title-card__text">
-		<h3 class="title-card__text--name">{{this.title}}</h3>
-		<hr>
-		<p class=" title-card__text--rating">{{this.rating}}</p>
-		<p class="title-card__text--synopsis">{{this.synopsis}}</p>
-		<form action="/imdb" method="POST" class="title-card__text--form">
-			<button name="imdb" value="{{this.imdbid}}" class="title-card__text--btn btn-secondary">
-				Click to see IMDB rating
-			</button>
-		</form>
+<div class="title-card col-3">
+	<div class="title-card__img">
+		<img src="{{this.image}}" alt="{{this.title}} image">
+	</div>
+	<div class="title-card__info">
+		<h3 class="title-card__info--title">{{this.title}}</h3>
+		<div class="title-card__info--rating">
+			<p class="title-card__info--rating-text">{{this.rating}}</p>
+			<i class="pe-7s-star title-card__info--icon"></i>
+		</div>
+		<p class="title-card__info--overview">{{this.synopsis}}</p>
+		<button name="imdb" value="{{this.imdbid}}" class="title-card__info--btn">IMDB Rating</button>
 	</div>
 </div>

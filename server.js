@@ -34,7 +34,7 @@ client.query(favorites);
 const app = express();
 const port = process.env.PORT || 3000;
 
-//Setup express to use the express json parser
+//Setup express to parse JSON and URL encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
