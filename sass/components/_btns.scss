@@ -28,4 +28,28 @@
 }
 
 
+.btn-secondary{
+	
+	font-family: $font-family-primary;
+	background-image: linear-gradient(to right, #EFCA08, #00A6A6, #BBDEF0 );
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	padding-right: 5px; 
+	border: none;
+	text-transform: uppercase;
+	display: inline-block;
+	transition: all .4s;
+	padding: .5rem;
+	border-radius: 2px;
+	
+	&:hover{
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		background-image: linear-gradient(to right, #EFCA08, #00A6A6, #BBDEF0 );
+		color: $color-primary-white;
+		cursor: pointer;
+		box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+	}
 
+}

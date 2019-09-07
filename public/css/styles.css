@@ -13,6 +13,14 @@ html {
 body {
   box-sizing: border-box; }
 
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 45%; } }
+
+@media only screen and (min-width: 1824px) {
+  html {
+    font-size: 100%; } }
+
 .main-heading {
   color: #fff;
   text-align: center; }
@@ -32,15 +40,6 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 3rem; }
 
-.title-card__text {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.6rem; }
-  .title-card__text--name {
-    color: #000;
-    font-family: "Montserrat", sans-serif;
-    font-size: 3rem; }
-
 .footer__text {
   color: #fff;
   font-size: 1.6rem;
@@ -48,11 +47,6 @@ body {
   padding: 2rem; }
   .footer__text--cpy {
     color: rgba(255, 255, 255, 0.6); }
-
-.imdb-card__text {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.6rem; }
 
 .footer {
   background-color: #E50914;
@@ -119,6 +113,27 @@ body {
     transform: translateY(0px) scale(1.05);
     box-shadow: 0 0.25rem 0.5rem rgba(255, 255, 255, 0.4); }
 
+.btn-secondary {
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(to right, #EFCA08, #00A6A6, #BBDEF0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 5px;
+  border: none;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: all .4s;
+  padding: .5rem;
+  border-radius: 2px; }
+  .btn-secondary:hover {
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background-image: linear-gradient(to right, #EFCA08, #00A6A6, #BBDEF0);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+
 .title-card {
   display: flex;
   background-color: white;
@@ -175,27 +190,8 @@ body {
       overflow: scroll;
       margin-top: 2px; }
     .title-card__info--btn {
-      font-family: "Montserrat", sans-serif;
       font-size: 2rem;
-      background-image: linear-gradient(to right, #EFCA08, #00A6A6, #BBDEF0);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      padding-right: 5px;
-      border: none;
-      text-transform: uppercase;
-      margin-top: 2rem;
-      display: inline-block;
-      transition: all .4s;
-      padding: .5rem;
-      border-radius: 2px; }
-      .title-card__info--btn:hover {
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        background-image: linear-gradient(to right, #EFCA08, #00A6A6, #BBDEF0);
-        color: #fff;
-        cursor: pointer;
-        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75); }
+      margin-top: 2rem; }
 
 .nav__checkbox {
   display: none; }
@@ -276,6 +272,62 @@ body {
   .nav__icon::after {
     top: 1rem; }
 
+.height {
+  height: 35rem;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%); }
+
+.imdb-card {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  min-width: 30rem;
+  margin: 1.5rem;
+  background-color: #fff;
+  text-align: center; }
+  .imdb-card__text {
+    background-color: #fff;
+    height: 23rem;
+    position: relative; }
+    .imdb-card__text--name {
+      font-family: "Montserrat", sans-serif;
+      font-size: 3rem;
+      background-image: linear-gradient(to right, #E71F29, #A9171E);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; }
+    .imdb-card__text__rating {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: -4rem;
+      right: 1rem; }
+      .imdb-card__text__rating--p {
+        background-image: linear-gradient(to right, #E71F29, #A9171E);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-family: "Montserrat", sans-serif;
+        font-size: 3rem; }
+      .imdb-card__text__rating--icon {
+        background-image: radial-gradient(yellow, orange);
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        font-size: 3rem;
+        color: #fff; }
+    .imdb-card__text--synopsis {
+      color: #000;
+      font-family: "Roboto", sans-serif;
+      font-size: 1.5rem;
+      max-height: 10rem;
+      overflow: scroll; }
+    .imdb-card__text--btn {
+      font-size: 2rem;
+      margin-top: 2rem;
+      width: 80%; }
+
 .main-heading {
   background-color: #000;
   background-image: url("/img/background-image.jpeg");
@@ -306,7 +358,6 @@ body {
   min-width: 40rem; }
 
 .col-2 {
-  min-width: 40rem;
   width: 46%; }
 
 .search-results {
@@ -317,13 +368,7 @@ body {
 .imdb {
   background-color: #000;
   text-align: center;
-  min-height: 95vh;
-  color: #fff;
   position: relative; }
-  .imdb-card {
-    margin-bottom: 2rem; }
-    .imdb-card__img {
-      width: 50%; }
   .imdb__success {
     position: absolute;
     background-color: green;

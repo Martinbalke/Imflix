@@ -1,0 +1,18 @@
+@mixin gradientTextRed{
+
+	background-image: linear-gradient(to right, $color-primary-red-light, $color-primary-red-dark);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+@mixin ratingStar {
+
+		background-image: radial-gradient( yellow, orange);
+			height: 3rem;
+			width: 3rem;
+			border-radius: 50%;
+			font-size: 3rem;
+			color: $color-primary-white;
+
+}

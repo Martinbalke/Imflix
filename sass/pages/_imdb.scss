@@ -2,19 +2,7 @@
 
 	background-color: $color-primary-black;
 	text-align: center;
-	min-height: 95vh;
-	color: $color-primary-white;
 	position: relative;
-	
-
-	&-card{
-		margin-bottom: 2rem;
-		&__img{
-			width: 50%;
-		}
-		
-
-	}
 
 	&__success{
 		position: absolute;

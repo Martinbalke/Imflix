@@ -1,0 +1,63 @@
+.height{
+	height: 35rem;
+	overflow: hidden;
+	clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+}
+
+.imdb-card{
+	color: white;
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+	min-width: 30rem;
+	margin: 1.5rem;
+	background-color: $color-primary-white;
+	text-align: center;
+
+	
+
+	&__text{
+		background-color: $color-primary-white;
+		height: 23rem;
+		position: relative;
+
+		&--name{
+			font-family:  $font-family-primary;
+			font-size: $font-size-medium;
+			@include gradientTextRed;
+		}
+
+		&__rating{
+			
+			display: flex;
+			align-items: center;
+			position: absolute;
+			top: -4rem;
+			right: 1rem;
+			
+			&--p{
+			@include gradientTextRed;
+			font-family: $font-family-primary;
+			font-size: 3rem;
+			}
+			&--icon{
+			@include ratingStar;
+			}
+		}
+
+		&--synopsis{
+			color: $color-primary-black;
+			font-family: $font-family-secondary;
+			font-size: 1.5rem;
+			max-height: 10rem;
+			overflow: scroll;
+		}
+		
+		&--btn{
+			font-size: 2rem;
+			margin-top: 2rem;
+			width: 80%;
+		}
+	}
+
+}

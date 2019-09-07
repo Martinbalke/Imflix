@@ -7,17 +7,20 @@ const tmdbGet = (imdbid) => {
 		.then( (response) => response.json())
 		.then( (jsonData) => {
 			if (jsonData.tv_results.length !== 0) return jsonData.tv_results;
+			if (jsonData.movie_results.length !== 0) return jsonData.movie_results;
 		})
 		.catch( (error) => error);
 }
 
-//Sample call with object destructuring
+// Sample call with object destructuring
 // tmdbGet('tt2189248')
 // 	.then( (result) => {
-// 		const { name, poster_path: img, vote_average: rating } = result[0];
-// 		console.log(name, img, rating)
+// 		let { name, poster_path: img, vote_average: rating} = result[0];
+// 		if (!name) name = result[0].title;
+// 		console.log(name, img, rating);
+
 // 	})
-// 	.catch( (error) => console.log(error))
+// 	.catch( (error) => console.log(error));
 
 
 

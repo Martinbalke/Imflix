@@ -81,10 +81,11 @@ app.post('/imdb', (req, res) => {
 	const imdb = req.body.imdb;
 	imdbSearch(imdb)
 		.then( (result) => {
-			const { poster_path: image, title, vote_average: rating, overview: synopsis } = result[0];
+			let { name, poster_path: image, vote_average: rating, overview: synopsis } = result[0];
+			if (!name) name = result[0].title;
 			res.render('imdb', {
 				image,
-				title,
+				name,
 				rating,
 				synopsis,
 				imdb
