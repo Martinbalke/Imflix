@@ -10,7 +10,6 @@ const hbs = require('hbs');
 //Model for favorites
 const favorites = require('./model/favorites');
 //Function for searching through the open source IMDB database supply a ID and a callback
-const imdbSearch = require('./utils/tmdb');
 const database = require('./model/database');
 
 //DATABASE
@@ -53,6 +52,7 @@ app.get('/', (req, res) => {
 });
 app.get('/search', netflixRoutes.getSearch);
 app.post('/search', netflixRoutes.postSearch);
+// app.get('/search:search', )
 app.post('/imdb', imdbRoutes.postImdb);
 app.post('/favorites', favoritesController.postInsertFavorites);
 app.get('/favorites', favoritesController.getReadFavorites);
