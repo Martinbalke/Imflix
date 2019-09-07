@@ -51,12 +51,12 @@ hbs.registerPartials(partials);
 app.get('/', (req, res) => {
 	res.render('index');
 });
-
 app.get('/search', netflixRoutes.getSearch);
 app.post('/search', netflixRoutes.postSearch);
 app.post('/imdb', imdbRoutes.postImdb);
 app.post('/favorites', favoritesController.postInsertFavorites);
 app.get('/favorites', favoritesController.getReadFavorites);
+app.delete('/favorites', favoritesController.deleteFavorite);
 
 app.listen(port, () => {
 	console.log(`App is live on ${port}`);

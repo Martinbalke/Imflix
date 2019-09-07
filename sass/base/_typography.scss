@@ -30,20 +30,14 @@
 		}
 	}
 
+	&__none{
+		color: $color-primary-white;
+		font-family: $font-family-primary;
+		font-size: $font-size-medium;
+	}
 }
 
-// .title-card__text{
-// 	color: $color-primary-white;
-// 	font-family: $font-family-secondary;
-// 	font-size: $font-size-small;
-	
-// 	&--name{
-// 		color: $color-primary-black;
-// 		font-family: $font-family-primary;
-// 		font-size: $font-size-medium;
-// 	}
 
-// }
 
 .footer{
 
@@ -59,18 +53,3 @@
 	}
 }
 
-
-// .imdb{
-	
-
-// 	&-card{
-
-// 		&__text{
-// 			color: $color-primary-white;
-// 			font-family: $font-family-secondary;
-// 			font-size: $font-size-small;
-// 		}
-
-// 	}
-
-// }

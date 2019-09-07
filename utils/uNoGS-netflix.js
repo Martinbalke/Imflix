@@ -1,5 +1,7 @@
+//Using the uNoGS open source netflix database
 
 const unirest = require("unirest");
+require('dotenv').config()
 
 const netflixSearch = (searchQuery, callback) => {
 
@@ -14,7 +16,7 @@ const netflixSearch = (searchQuery, callback) => {
 			"sa": "and"
 		}).headers({
 			"x-rapidapi-host": "unogs-unogs-v1.p.rapidapi.com",
-			"x-rapidapi-key": "bc8d2c1c4emsh14316197c74c115p1db4aajsn5d33151046d6"
+			"x-rapidapi-key": process.env.API_KEY
 		}).end((res) => {
 			if (res.error) return callback(res.error, undefined);
 

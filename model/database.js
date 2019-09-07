@@ -1,3 +1,5 @@
+//Setup the database with .env variables 
+
 require('dotenv').config()
 const { Client } = require('pg');
 

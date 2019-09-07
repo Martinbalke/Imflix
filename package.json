@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon server.js",
     "sass": "node-sass sass/main.scss public/css/styles.css -w"
   },
   "keywords": [],

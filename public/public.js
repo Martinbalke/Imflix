@@ -24,4 +24,20 @@ $('#favorites-button').click( (e) => {
 });
 
 
+//When the delete button is pressed sends an ajax request to delete the matching item from the DB, then fades out the parent div.
+$('.flex-center').on('click', '#favorites-button-delete', function(e){
+	e.preventDefault();
+	const button = $(this);
+	$.ajax({
+		url: '/favorites',
+		type: 'delete',
+		data: {
+			id: $('#favorites-button-delete').val(),
+		},
+		success: function() {
+			button.closest('.imdb-card').fadeOut(800);
+		}
+	});
+});
+
 
