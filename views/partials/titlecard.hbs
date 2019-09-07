@@ -9,6 +9,8 @@
 			<i class="pe-7s-star title-card__info--icon"></i>
 		</div>
 		<p class="title-card__info--overview">{{this.synopsis}}</p>
-		<button name="imdb" value="{{this.imdbid}}" class="title-card__info--btn">IMDB Rating</button>
+		<form action="/imdb" method="POST">
+		<button name="imdb" value="{{this.imdbid}}" class="title-card__info--btn btn-secondary">IMDB Rating</button>
+		</form>
 	</div>
 </div>
