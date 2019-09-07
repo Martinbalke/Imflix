@@ -1,34 +1,30 @@
 'use strict';
 
-//NPM PACKAGE IMPORTS 
-require('dotenv').config()
+//NPM PACKAGE IMPORTS
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
-const {Client} = require('pg');
+
 
 //LOCAL IMPORTS
 //Model for favorites
 const favorites = require('./model/favorites');
-//Function for searching through the open source netflix database supply a search criteria and a callback
-const netflixSearch = require('./utils/uNoGS-netflix');
 //Function for searching through the open source IMDB database supply a ID and a callback
 const imdbSearch = require('./utils/tmdb');
+const database = require('./model/database');
 
+//DATABASE
+//Connect to the database
+database.client.connect()
+database.client.on('error', (error) => console.error(error));
+//Initialize the favorites Model
+database.client.query(favorites);
 
-//SQL Database configuration
-const client = new Client({
-	host: process.env.DB_HOST,
-	user: process.env.DB_USER,
-	password: process.env.DB_PASSWORD,
-	database: process.env.DATABASE
-});
+//ROUTES
+const netflixRoutes = require('./routes/netflixRoutes');
+const imdbRoutes = require('./routes/imdbRoutes');
+const favoritesController = require('./controller/favoritesController');
 
-client.connect()
-client.on('error', (error) => console.error(error));
-
-//Initialize the favorites table
-client.query(favorites);
 
 //Initialize express and have it listen on port 
 const app = express();
@@ -56,72 +52,11 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 
-app.get('/search', (req, res) => {
-	res.render('search', {
-		text: 'Search below to discover new shows'
-	});
-});
-
-
-//Takes in the search form criteria and uses that to search the open source netflix db
-app.post('/search', (req, res) => {
-	const search = req.body.search;
-	netflixSearch(search, (error, response) => {
-		if (error) return error;
-		res.render('search', {
-			data: response.ITEMS,
-			text: `Click on a title below to see it's IMDB rating`
-		});
-
-	});
-});
-
-
-app.post('/imdb', (req, res) => {
-	const imdb = req.body.imdb;
-	imdbSearch(imdb)
-		.then( (result) => {
-			let { name, poster_path: image, vote_average: rating, overview: synopsis } = result[0];
-			if (!name) name = result[0].title;
-			res.render('imdb', {
-				image,
-				name,
-				rating,
-				synopsis,
-				imdb
-			});
-		})
-		.catch( (error) => console.error(error) )
-});
-
-app.post('/favorites', (req, res) => {
-	const imdbID = req.body.id;
-	client.query('INSERT INTO favorites(imdbid) values($1)', [imdbID])
-		.then( (result) =>  res.status(201).send())
-		.catch( (error) => res.status(400).send());
-
-});
-
-
-app.get('/favorites', (req, res) => {
-	const query = {
-		text: 'SELECT imdbid FROM favorites',
-		rowMode: 'array',
-	}
-
-	client.query(query)
-		.then( (result) => result.rows)
-		.then( (rows) => {
-			const imdbData = Promise.all(rows.map( (row) => imdbSearch(row)))
-			imdbData.then((data) => {
-				data = data.flat();
-				res.render('favorites', {
-					data
-				})
-			})
-		})
-		.catch( (error) => console.error(error.stack));
-});
+app.get('/search', netflixRoutes.getSearch);
+app.post('/search', netflixRoutes.postSearch);
+app.post('/imdb', imdbRoutes.postImdb);
+app.post('/favorites', favoritesController.postInsertFavorites);
+app.get('/favorites', favoritesController.getReadFavorites);
 
 app.listen(port, () => {
 	console.log(`App is live on ${port}`);
