@@ -41,7 +41,6 @@ exports.getReadFavorites = (req, res) => {
 exports.deleteFavorite = (req, res) => {
 	const id = req.body.id;
 	const query = `DELETE FROM favorites WHERE imdbid LIKE $1`
-	console.log(id);
 	const values = [id]
 	res.status(200).send();
 	database.client.query(query, values)

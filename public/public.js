@@ -36,7 +36,6 @@ $('.flex-center').on('click', '#favorites-button-delete', function(e){
 		},
 		success: function() {
 			button.closest('.imdb-card').fadeOut(800);
-
 		}
 	});
 });
