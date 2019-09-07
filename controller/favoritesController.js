@@ -39,9 +39,11 @@ exports.getReadFavorites = (req, res) => {
 //Searches the favorites table and selects imdbid's with like titles to the one that is being removed then deletes them. 
 //This request is handled via ajax in the public.js
 exports.deleteFavorite = (req, res) => {
-	const id = req.body.id;
+	let id = req.body.id;
+	console.log(id);
 	const query = `DELETE FROM favorites WHERE imdbid LIKE $1`
-	const values = [id]
+	let values = [id]
+	console.log(values);
 	res.status(200).send();
 	database.client.query(query, values)
 		.then( (result) => { console.log('deleted count' + result.rowCount)})
