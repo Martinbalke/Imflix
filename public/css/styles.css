@@ -390,5 +390,5 @@ body {
       font-size: 5rem; }
 
 .favorites {
-  height: 95vh;
+  min-height: 95vh;
   background-color: #000; }
