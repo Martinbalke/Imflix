@@ -1,8 +1,8 @@
 const imdbSearch = require('../utils/tmdb');
 
 
-exports.postImdb = (req, res) => {
-	const imdb = req.body.imdb;
+exports.getImdb = (req, res) => {
+	const imdb = req.query.imdb;
 	imdbSearch(imdb)
 		.then((result) => {
 			//Destructuring the result to use on the relavant variables

@@ -52,8 +52,7 @@ app.get('/', (req, res) => {
 	res.render('index');
 });
 app.get('/search', netflixRoutes.getSearch);
-app.post('/search', netflixRoutes.postSearch);
-app.post('/imdb', imdbRoutes.postImdb);
+app.get('/imdb', imdbRoutes.getImdb);
 app.post('/favorites', favoritesController.postInsertFavorites);
 app.get('/favorites', favoritesController.getReadFavorites);
 app.delete('/favorites', favoritesController.deleteFavorite);

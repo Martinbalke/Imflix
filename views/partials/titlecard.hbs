@@ -5,11 +5,11 @@
 	<div class="title-card__info">
 		<h3 class="title-card__info--title">{{this.title}}</h3>
 		<div class="title-card__info--rating">
-			<p class="title-card__info--rating-text">{{this.rating}}</p>
+			<p class="title-card__info--rating-text">Netflix Rating {{this.rating}}</p>
 			<i class="pe-7s-star title-card__info--icon"></i>
 		</div>
 		<p class="title-card__info--overview">{{this.synopsis}}</p>
-		<form action="/imdb" method="POST">
+		<form action="/imdb" method="GET">
 		<button name="imdb" value="{{this.imdbid}}" class="title-card__info--btn btn-secondary">IMDB Rating</button>
 		</form>
 	</div>
