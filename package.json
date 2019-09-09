@@ -21,8 +21,6 @@
     "node-fetch": "^2.6.0",
     "passport": "^0.4.0",
     "pg": "^7.12.1",
-    "request": "^2.88.0",
-    "unirest": "^0.6.0",
-    "validator": "^11.1.0"
+    "unirest": "^0.6.0"
   }
 }
