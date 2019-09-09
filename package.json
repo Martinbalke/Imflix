@@ -8,8 +8,8 @@
     "sass": "node-sass sass/main.scss public/css/styles.css -w"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Martin Balke",
+  "license": "MIT",
   "devDependencies": {
     "node-sass": "^4.12.0"
   },
@@ -22,5 +22,8 @@
     "passport": "^0.4.0",
     "pg": "^7.12.1",
     "unirest": "^0.6.0"
+  },
+  "engines": {
+    "node":"12.6.0"
   }
 }
